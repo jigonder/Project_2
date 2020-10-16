@@ -39,7 +39,7 @@ function handleSubmit() {
 }
 
 function buildPlot(stock, startDate, endDate) {
-  var apiKey = "29whdKQ_ubxUuEJEHgps";
+  var apiKey = API_KEY;
 
   var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=${startDate}&end_date=${endDate}&api_key=${apiKey}`;
 
