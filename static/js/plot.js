@@ -16,7 +16,30 @@ function unpack(rows, index) {
   });
 }
 
-// Submit Button handler
+// define date variables
+var startDay;
+var endDay;
+
+// create calendar
+var freeDate = moment("2018-03-17");
+
+$('input[name="daterange"]').daterangepicker({
+  opens: 'left',
+  maxDate: freeDate,
+  ranges: {
+    'Last 7 Days': [freeDate.clone().subtract(6,'days'), freeDate],
+    'Last 30 Days': [freeDate.clone().subtract(29,'days'), freeDate],
+    'Last Year': [freeDate.clone().subtract(1,'year'), freeDate],
+    'Last 5 Years': [freeDate.clone().subtract(5,'year'), freeDate]
+  }}, 
+  function(start, end) {
+    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'))
+    startDay = start.clone();
+    endDay = end.clone();
+  });
+
+
+// Create button function
 function handleSubmit() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
@@ -24,26 +47,22 @@ function handleSubmit() {
   // Select the input value from the form
   var stock = d3.select("#stockInput").node().value;
   console.log(stock);
-  var startDate = d3.select("#startDateInput").node().value;
-  console.log(startDate);
-  var endDate = d3.select("#endDateInput").node().value;
-  console.log(endDate);
-
-  // clear the input value
-  d3.select("#stockInput").node().value = "";
-  d3.select("#startDateInput").node().value = "";
-  d3.select("#endDateInput").node().value = "";
-
-  // Build the plot with the new stock
-  buildPlot(stock, startDate, endDate);
+ 
+  // console.log(startDay);
+  // console.log(endDay);
+ 
+  //  Build the plot with the new stock
+  buildPlot(stock, startDay.format('YYYY-MM-DD'), endDay.format('YYYY-MM-DD'));
 }
 
 function buildPlot(stock, startDate, endDate) {
-  var apiKey = API_KEY;
+
+  var apiKey = API_KEY; // Either puth api key from quandl here or in config.js as const API_KEY 
 
   var url = `https://www.quandl.com/api/v3/datasets/WIKI/${stock}.json?start_date=${startDate}&end_date=${endDate}&api_key=${apiKey}`;
 
   d3.json(url).then(function(data) {
+    console.log(data.dataset);
 
     // Grab values from the response json object to build the plots
     var name = data.dataset.name;
@@ -80,14 +99,15 @@ function buildPlot(stock, startDate, endDate) {
     var data = [trace2];
 
     var layout = {
-      title: `${stock} closing prices`,
+      title: `${stock} Daily Stock Value`,
       xaxis: {
         range: [startDate, endDate],
         type: "date"
       },
       yaxis: {
         autorange: true,
-        type: "linear"
+        type: "linear",
+        title: {text: "Stock Price ($)"}
       }
     };
 
@@ -95,5 +115,18 @@ function buildPlot(stock, startDate, endDate) {
   });
 }
 
+// function to call to get new start and end days from calendar
+function getDates() {
+  startDay = $('#daterange').data('daterangedata').startDate;
+  endDay = $('#daterange').data('daterangedata').endDate;
+  console.log(startDay);
+  
+}
+
 // Add event listener for submit button
 d3.select("#submit").on("click", handleSubmit);
+// Event listener for daterange input
+d3.select("#daterange").on('change', getDates);
+
+
+
