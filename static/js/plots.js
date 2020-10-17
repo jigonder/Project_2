@@ -1,4 +1,4 @@
-var apiKey = "29whdKQ_ubxUuEJEHgps";
+var apiKey = API_KEY;
 
 /**
  * Helper function to select stock data
@@ -44,7 +44,7 @@ function buildTable(dates, unemploymentRate, inflationRate, miseryIndex) {
 }
 
 function buildPlot() {
-  var url = `https://www.quandl.com/api/v3/datasets/USMISERY/INDEX.json?api_key=29whdKQ_ubxUuEJEHgps`;
+  var url = `https://www.quandl.com/api/v3/datasets/USMISERY/INDEX.json?api_key=${apiKey}`;
 
   d3.json(url).then(function(data) {
 

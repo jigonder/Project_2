@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, send_from_directory
 from flask_pymongo import PyMongo
 import scrape_news
 
@@ -35,10 +35,11 @@ def scrape():
 def misery():
 
     return render_template("misery.html")
+    
 
-# @app.route("/stockindex")
-# def stocks():
-#     return render_template("stocks.html")
+@app.route("/stockindex")
+def stocks():
+     return render_template("stockSearch.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
