@@ -5,7 +5,7 @@ PROJECT OUTLINE: US Economic Dashboard- The State of the Economy
 The goal of this project was to create visualizations of data. Our team chose to investigate the current state of the US economy and it's impact on US citizens. 
 We created a website where you are able to select specific dates and see comparisons of unemployment rate and inflation rate vs Misery Index. 
 
-To view this please use the index.html folder in the templates folder to access webpage.
+To view this please use the index.html folder in the templates folder to access webpage.  Will need to be running the Flask app at the same time.
 
 Objective:
 •	Develop an overall dashboard that will link to the various sites showing economic data and recent news.  In this website we focused on the Misery Index and a stock search / stock plot creation.
