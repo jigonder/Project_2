@@ -11,9 +11,10 @@ Objective:
 •	Develop an overall dashboard that will link to the various sites showing economic data and recent news.  In this website we focused on the Misery Index and a stock search / stock plot creation.
 
 •	Will be extracting various economic data from Quandl using available, free API.  With this data will be constructing various charts and visualizations to communicate the state of the US economy.
-•	Plan to utilize Plotl.y for these various visualizations.
 
-•	This site will web scrape the CNBC Economic website for the most recent economic headlines and news stories.  Will include article headline and image.  MongoDb is used to house the web scraping results.
+•	Plan to utilize Plotly for these various visualizations.
+
+•	This site will web scrape the CNBC Economic website for the most recent economic headlines and news stories.  Will include article headline and image. MongoDb is used to house the web scraping results.
 
 •	Website will be constructed with D3 and JavaScript for these visualizations, news headlines, images, etc.
 
