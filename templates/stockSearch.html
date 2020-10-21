@@ -14,21 +14,37 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <!--For styling-->
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <body>
   <form class="form-inline">
     <div class="form-group">
-      <label for="stockInput">Stock</label>
+      <label for="stockInput">Stock::</label>
       <input type="text" class="form-control" id="stockInput" placeholder="Enter a stock">
     </div>
     <div class="form-group">
-      <label for="daterange">Date</label>
-      <input type="text" id="daterange" name="daterange" placeholder="MM/DD/YYYY - MM/DD/YYYY">
+      <label for="daterange">Date::</label>
+      <input type="text" id="daterange" name="daterange" placeholder="MM/DD/YYYY - MM/DD/YYYY" size="23px">
     </div>
     <button id="submit" type="submit" class="btn btn-default">Plot Stock</button>
   </form>
+  <!--Display Candlestick-->
   <div id="plot"></div>
+  <!--Provide Stock Info-->
+  <div class="row info-container">
+    <div class="col-sm-6" id="info">
+      <div id="stockName"></div>
+      <div id="availableDates"></div>
+    </div>
+    <div class="col-sm-3">
+      <div id="percent"></div>
+    </div>
+    
+  </div>
   <!-- Javascript for the html -->
   <script src="../static/js/plot.js"></script>
   <!-- For the api key to quandl -->

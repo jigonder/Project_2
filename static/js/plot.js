@@ -36,7 +36,7 @@ $('input[name="daterange"]').daterangepicker({
     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'))
     startDay = start.clone();
     endDay = end.clone();
-  });
+});
 
 
 // Create button function
@@ -65,7 +65,7 @@ function buildPlot(stock, startDate, endDate) {
     console.log(data.dataset);
 
     // Grab values from the response json object to build the plots
-    var name = data.dataset.name;
+    var name = data.dataset.name.split(" (")[0];
     var stock = data.dataset.dataset_code;
     var startDate = data.dataset.start_date;
     var endDate = data.dataset.end_date;
@@ -74,17 +74,19 @@ function buildPlot(stock, startDate, endDate) {
     var highPrices = unpack(data.dataset.data, 2);
     var lowPrices = unpack(data.dataset.data, 3);
     var closingPrices = unpack(data.dataset.data, 4);
+    var startAvailableDate = data.dataset.newest_available_date;
+    var endAvailableDate = data.dataset.oldest_available_date;
 
-    var trace1 = {
-      type: "scatter",
-      mode: "lines",
-      name: name,
-      x: dates,
-      y: closingPrices,
-      line: {
-        color: "#17BECF"
-      }
-    };
+    // var trace1 = {
+    //   type: "scatter",
+    //   mode: "lines",
+    //   name: name,
+    //   x: dates,
+    //   y: closingPrices,
+    //   line: {
+    //     color: "#17BECF"
+    //   }
+    // };
 
     // Candlestick Trace
     var trace2 = {
@@ -110,8 +112,19 @@ function buildPlot(stock, startDate, endDate) {
         title: {text: "Stock Price ($)"}
       }
     };
-
+    // Create plot
     Plotly.newPlot("plot", data, layout);
+    
+    // Find percent change during daterange selection
+    var beginning = closingPrices[closingPrices.length-1];
+    var ending = closingPrices[0];
+
+    var pChange = (ending - beginning) / beginning * 100
+    d3.select("#percent").html(`<h3>Percent Change over Selected Range: <b>${pChange.toFixed(2)}%<b></h3>`)
+
+    d3.select("#stockName").html("<h2>"+name+"<hr></h2>");
+    d3.select("#availableDates").html(`<h4>Oldest Available Date: ${endAvailableDate}<br>
+                                       Newest Available Date: ${startAvailableDate}</h4>`)
   });
 }
 
@@ -127,6 +140,4 @@ function getDates() {
 d3.select("#submit").on("click", handleSubmit);
 // Event listener for daterange input
 d3.select("#daterange").on('change', getDates);
-
-
 
