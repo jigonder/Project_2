@@ -1,0 +1,12 @@
+.info-container {
+    padding-left: 20%;
+}
+
+#submit {
+    border-color: black;
+}
+
+.form-group {
+    padding-left: 15px;
+    padding-right: 15px;
+}
