@@ -41,5 +41,9 @@ def misery():
 def stocks():
     return render_template("stockSearch.html")
 
+@app.route("/home")
+def mainpage():
+    return redirect("/")
+
 if __name__ == "__main__":
     app.run(debug=True)
