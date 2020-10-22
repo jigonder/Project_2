@@ -12,10 +12,12 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/fin_app")
 @app.route("/")
 def home():
     # Find record from MongoDB and render the template
-    news = mongo.db.collection.find_one() # filter by date
-
+    newsList = mongo.db.collection.find() # find most recent news
+    # Run through conditional to see if 
+    for x in newsList:
+        newsOne = x
     # Return template and data
-    return render_template("index.html", newsDoc=news)
+    return render_template("index.html", newsDoc=newsOne)
     
 
 # Route that will trigger the scrape function
