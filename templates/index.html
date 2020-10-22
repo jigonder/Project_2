@@ -41,8 +41,9 @@
     <div class="headlines">
           <div class="jumbotron text-center">
             <h1>Today's Top Economic Headline</h1>
+            <h1><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Latest News</a></h1>
           </div>
-          <h4 class="heading" href="/scrape"><center><a href={{newsDoc.articleLink}}><img src={{newsDoc.imgLink}}></center></a> </h4>
+          <h4 class="heading"><center><a href={{newsDoc.articleLink}}><img src={{newsDoc.imgLink}}></center></a> </h4>
           <h4><center>{{newsDoc.imgText}}</center></h4>
           <a href={{newsDoc.authorLink}}><center>{{newsDoc.author}}</center></a> 
           <small><center>{{newsDoc.iDate}} </center></small>
