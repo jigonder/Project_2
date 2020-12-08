@@ -1,21 +1,21 @@
-#Project_2
+#US Economic Dashboard- The State of the Economy
 
 ## Table of Contents
-- [OUTLINE: US Economic Dashboard- The State of the Economy](#outline--us-economic-dashboard--the-state-of-the-economy)
-- [Functionality and Backend:](#functionality-and-backend-)
+- [Introduction](#introduction)
+- [Functionality and Backend:](#functionality-and-backend)
   * [Home Dashboard](#home-dashboard)
   * [Misery Index](#misery-index)
   * [Stock Search](#stock-search)
 - [Contact Us](#contact-us)
   
-## OUTLINE: US Economic Dashboard- The State of the Economy
+## Introduction
 
 The goal of this project was to create visualizations of data. Our team chose to investigate the current state of the US economy and it's impact on US citizens. 
 We created a website where you are able to select specific dates for stock prices and see comparisons of unemployment rate, inflation rate, and Misery Index. 
 
 To view this please run the app.py in python terminal file to initiate the flask to your local server. For viewing the Misery index and using the stock search you will also need an api key form <a href="https://www.quandl.com/tools/api">quandl.com</a>. Then put your api key inside /static/js/config.js, you will need to make the config.js file and create a javascript variable "var API_KEY = "insert you api key from quandl";".
 
-## Functionality and Backend:
+## Functionality and Backend
 <ul>
 <li>An overall dashboard that will link to the various sites showing economic data and recent news.  In this website we focused on the Misery Index and a stock search / stock plot creation.</li>
 <li>Each page in the app has a navbar for navigating the application easily.</li>
