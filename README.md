@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Functionality and Backend:](#functionality-and-backend)
+- [Functionality and Backend](#functionality-and-backend)
   * [Home Dashboard](#home-dashboard)
   * [Misery Index](#misery-index)
   * [Stock Search](#stock-search)
