@@ -1,5 +1,13 @@
 #Project_2
 
+## Table of Contents
+- [OUTLINE: US Economic Dashboard- The State of the Economy](#outline--us-economic-dashboard--the-state-of-the-economy)
+- [Functionality and Backend:](#functionality-and-backend-)
+  * [Home Dashboard](#home-dashboard)
+  * [Misery Index](#misery-index)
+  * [Stock Search](#stock-search)
+- [Contact Us](#contact-us)
+  
 ## OUTLINE: US Economic Dashboard- The State of the Economy
 
 The goal of this project was to create visualizations of data. Our team chose to investigate the current state of the US economy and it's impact on US citizens. 
@@ -50,4 +58,5 @@ To use, input a ticker (abbreviation) for a stock and select a date range. The c
 
 ![](images/stocksearch.gif)
 
-
+## Contact Us
+Email-Jake Geiser: git@jakegeiser.us
